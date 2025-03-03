@@ -1,0 +1,60 @@
+# General sensor definitions.
+dataset: airsim
+ncam: 2
+
+camera_0:
+  topic: /airsim_node/Car1/camera_left/Scene
+  # Sensor extrinsics wrt. the body-frame.
+  T_BS:
+    cols: 4
+    rows: 4
+    data: [1.0, 0.0, 0.0, 1.999999761581421,
+           0.0, 0.9999999980300166, -6.276915513082749e-05, -0.09997771680355072,
+           0.0, 6.276915513082749e-05, 0.9999999980300166, -1.6809508800506592,
+           0.0, 0.0, 0.0, 1.0]
+  
+  # Camera specific definitions.
+  rate_hz: 30
+  resolution: [640, 480]
+  projection_model: pinhole
+  intrinsics: [320.5387100105245, 320.5387100105245, 320.0, 240.0] # fu, fv, cu, cv
+  distortion_model: radial-tangential
+  distortion_coefficients: [-0.04087948, 0.03006104, 0, 0]
+
+camera_1:
+  topic: /airsim_node/Car1/camera_right/Scene
+  # Sensor extrinsics wrt. the body-frame.
+  T_BS:
+    cols: 4
+    rows: 4
+    data: [1.0, 0.0, 0.0, 1.999999761581421,
+           0.0, 0.9999999980300166, -6.276915513082749e-05, 0.10002227872610092,
+           0.0, 6.276915513082749e-05, 0.9999999980300166, -1.6809383630752563,
+           0.0, 0.0, 0.0, 1.0]
+
+  # Camera specific definitions.
+  rate_hz: 30
+  resolution: [640, 480]
+  projection_model: pinhole
+  intrinsics: [320.5387100105245, 320.5387100105245, 320.0, 240.0] # fu, fv, cu, cv
+  distortion_model: radial-tangential
+  distortion_coefficients: [-0.04087948, 0.03006104, 0, 0]
+
+imu:
+  topic: /airsim_node/Car1/imu/IMU1
+  # Sensor extrinsics wrt. the body-frame.
+  T_BS:
+    cols: 4
+    rows: 4
+    data: [1.0, 0.0, 0.0, 0.0,
+           0.0, 1.0, 0.0, 0.0,
+           0.0, 0.0, 1.0, 0.0,
+           0.0, 0.0, 0.0, 1.0]
+  
+  rate_hz: 100
+
+  # Inertial sensor noise model parameters (static)
+  gyroscope_noise_density: 0.01     # [ rad / s / sqrt(Hz) ]   ( gyro "white noise" )
+  gyroscope_random_walk: 0.0001       # [ rad / s^2 / sqrt(Hz) ] ( gyro bias diffusion )
+  accelerometer_noise_density: 0.1  # [ m / s^2 / sqrt(Hz) ]   ( accel "white noise" )
+  accelerometer_random_walk: 0.001    # [ m / s^3 / sqrt(Hz) ].  ( accel bias diffusion )
