@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
     ros-humble-twist-mux \
     ros-humble-usb-cam \
     ros-humble-xacro \
+    ros-humble-tf2 \
     ros-humble-tf2-sensor-msgs \
     ros-humble-tf2-geometry-msgs \
     ros-humble-mavros* \
